@@ -1,6 +1,18 @@
 # ACE Technical explanation:
 ---
 ACE (Arbritrary code execution) in Wind Waker is performed by corrupting screen data from an NPC's textbox with pictobox image data to trick the game to run code based on inputs from controllers 2-4.
+<br /><br />
+This has been a massive community effort with much thanks to the following people for their contributions:
+- Minimini352
+- EJ125
+- Azer67
+- ShadowQCD
+- Mr Cheeze
+- LagoLunatic
+- Jasper
+- shoedrip
+- LegendOfLinkk
+
 
 ## Part 1: Text Delay
 
