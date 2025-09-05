@@ -97,9 +97,9 @@ To trigger ACE, the following needs to happen:
 To put it all together, the following happens to trigger ACE.  
 We peform all the of the steps from Part 3, but now with our payload from the pictobox in place. This means that instead of crashing when ```dMsg_Delete``` tries to run on the stale ```sScreen``` value, the following happens:
 
-1. ```sScreen``` has been corrupted to have the value of 0x80ABBDFF, which is the value of the specific pixel data of the 3rd image of the pictobox.  
+1. ```sScreen``` has been corrupted to have the value of ```0x80ABBDFF```, which is the value of the specific pixel data of the 3rd image of the pictobox.  
 2. ```dMsg_Delete``` will take that address and add 8 to it, giving us ```0x80ABBE07```  
-3. ```0x80ABBE07``` refers to the 4th byte of Link's position data. Link is standing at X position = -200046.0 and Y position = 0.559514701. Forming the value 0x803F0F3C  
-4. ```dMsg_Delete``` will try to run code at address 0x803F0F3C which it now thinks is where it needs to go to delete the screen data, but in reality ends up being the controller data containing our payload.  
+3. ```0x80ABBE07``` refers to the 4th byte of Link's position data. Link is standing at X position = -200046.0 and Y position = 0.559514701. Forming the value ```0x803F0F3C```  
+4. ```dMsg_Delete``` will try to run code at address ```0x803F0F3C``` which it now thinks is where it needs to go to delete the screen data, but in reality ends up being the controller data containing our payload.  
 5. The controller data is ran as code, deleting one line of code within the stage transition function to trigger the credits.  
 6. We load a new stage, the modified code within the stage transition function causes the credits to now load.  
