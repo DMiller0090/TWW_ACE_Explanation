@@ -36,9 +36,9 @@ We now have two textboxes on screen, one of the text boxes graphics are invisibl
 
 ## Part 3: Corrupting the screen data
 
-When a textbox is created normally, the NPC is assigned a pointer **```sScreen```**. ```sScreen``` is a globally static variable that tells the NPC where the screen data for a textbox is loaded into memory.  
+When a textbox is created normally, the NPC is assigned a pointer **```sScreen```**. ```sScreen``` is used to that tell the NPC where the screen data for a textbox is loaded into memory.  
 The game never expects more than one textbox to ever be loaded at a time, and never anticipated a need to use more than one ```sScreen``` pointer.  
-After performing text stacking, this means that both NPCs now believe that their screen data are in the EXACT same place in memory.  
+After performing text stacking, this means that both NPCs both share the same value for ```sScreen``` and now believe that their screen data are in the EXACT same place in memory.  
 
 **This can be exploited...**
 
