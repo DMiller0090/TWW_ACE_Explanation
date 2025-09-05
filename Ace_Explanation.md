@@ -83,7 +83,9 @@ To trigger ACE, the following needs to happen:
 3. ```0x80ABBE07``` just so happens to refer to 4th byte of Link's position data.  
 4. Link's position data is stored as 3 floating point numbers. Our goal is stand at X position = -200046.0 and Y position = 0.559514701  
    - If we convert these values to hexadecimal we get the following:  
-     [X = C8 43 5B 80] [Y = 3F 0F 3C 5B]  
+      >| 1  | 2  | 3  | **4**  | **5**  | **6**  | **7**  | 8  |
+      >|----|----|----|----|----|----|----|----|
+      >| C8 | 43 | 5B | **80** | **3F** | **0F** | **3C** | 5B |
    - We take the 4th byte of the X value and the first 3 bytes of the Y value to get value 80 3F 0F 3C -> ```0x803F0F3C``  
 5. The game will attempt to run code at whatever is stored at ```0x803F0F3C``. This address contains controller data for controllers 2-4  
 6. We hold very precise inputs on controllers 2-4 to produce machine code which the game will execute.  
