@@ -91,7 +91,7 @@ To trigger ACE, the following needs to happen:
 
 1.  We take a picture that just so happens to have the pixel data of ```0x80ABBDFF```
    > ![image](pixel_data.png) <br/><br/> *Read as Left to Right, Top to Bottom to form ```0x80ABBDFF```
-2. The game will try to run code at whatever value is stored at ```0x80ABBDFF``` + 8 = ```0x80ABBE07```
+2. The game will see what value is stored at ```0x80ABBDFF``` + 8 = ```0x80ABBE07``` and attempt to execute code at that address.
 3. ```0x80ABBE07``` just so happens to refer to 4th byte of Link's position data.  
 4. Link's position data is stored as 3 floating point numbers. Our goal is stand at X position = -200046.0 and Y position in the range of [0.5595093 ; 0.5595245]
    - If we convert these values to hexadecimal we get the following:  
