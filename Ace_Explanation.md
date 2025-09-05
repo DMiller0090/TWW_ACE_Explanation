@@ -16,7 +16,7 @@ This is a glitch that delays activating an NPCs textbox by storing a textbox and
    - Switch back to camera mode, press **B** again to be able to walk away from the NPC.  
    - Repeat switching back and forth until the actor is offscreen.  
 5. With the NPC culled (offscreen), they will wait until we rotate the camera back onto them  
-   a. Once the text is loaded, we can prevent the text prompts from appearing by simply looking away from the actor again.  
+   - Once the text is loaded, we can prevent the text prompts from appearing by simply looking away from the actor again.  
 
 ---
 
@@ -59,7 +59,7 @@ After performing text stacking, this means that both NPCs both share the same va
 5. We look away from the 2nd NPC and close the final textbox. Because this NPC is offscreen, it will wait to call the deletion code until it goes back on screen.  
 6. We position the camera in a certain way such that when we pull out the pictobox, the NPC unculls the same time the pictobox data loads in  
 7. The pictobox UI (user interface) data loads into the now freed space in memory that just got cleared earlier from the 1st NPC.  
-   a.) ```sScreen``` is still pointing to the same place in memory, but instead of pointing to screen data, it now points to (seemingly random) data from the pictobox.  
+   - ```sScreen``` is still pointing to the same place in memory, but instead of pointing to screen data, it now points to (seemingly random) data from the pictobox.  
 8. The 2nd NPC will attempt to go through the same process as what occurred at step #2. However, this time, ```sScreen``` has been corrupted by pictobox data, and will immediately cause a crash when it tries to run code at an invalid location in memory.  
 
 Unless we do the following......  
