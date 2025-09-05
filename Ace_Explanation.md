@@ -82,7 +82,7 @@ Unless we do the following......
 
 Relating back to our example, we mentioned that ```sScreen``` is refering to the address ```0x81579F34```. Originally, ```0x81579F34``` stored information about the (now deleted) textboxes screen data. However, now it's being populated by pictobox data. But what pictobox data exactly is getting loading into that address?  
 
-It just so happens to be a certain collection of pixels within the 3rd image saved in the pictobox.  
+It just so happens to be a collection of 4x4 pixels within the 3rd image saved in the pictobox.  
 
 > ![image](NTSC-U_3rdPixelData.png) <br/><br/> *3rd saved image of pictobox. The black pixel is where the data that ```sScreen``` will be replaced with.*  
 
