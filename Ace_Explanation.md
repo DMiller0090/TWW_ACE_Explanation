@@ -50,7 +50,7 @@ After performing text stacking, this means that both NPCs both share the same va
          For example:  
             - when the message was created, let's say it assigned the value of ```0x81572C40``` to ```sScreen```  
             - ```dMsg_Delete``` looks to see what value is stored by ```sScreen``` at address ```0x81572C40``` and sees the value is ```0x8039D680```
-            - ```dMsg_Delete``` will attempt to take the address ```0x8039D680```, add 8 to it, giving us 0x8039D688, and will attempt to run whatever code is located at ```0x8039D688```  
+            - ```dMsg_Delete``` will attempt to take the address ```0x8039D680```, add 8 to it, giving us ```0x8039D688```, and will attempt to run whatever code is located at ```0x8039D688```  
       3. ```dMsg_Delete``` runs the code ```sScreen``` told it to, and the space that was occupied by that screen is now free to be used by other UI (user interface) elements.  
       4. CRUICIALLY: despite the memory for the screen now available in memory, ```sScreen``` is NOT cleared, and still points to the same location of (now free) memory.  
          Relating back to our example... ```sScreen``` would still have the value ```0x81572C40``` despite that region of memory now available to be overwritten.  
