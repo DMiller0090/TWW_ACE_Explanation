@@ -86,7 +86,7 @@ To trigger ACE, the following needs to happen:
       >| 1  | 2  | 3  | **4**  | **5**  | **6**  | **7**  | 8  |
       >|----|----|----|----|----|----|----|----|
       >| C8 | 43 | 5B | **80** | **3F** | **0F** | **3C** | 5B |
-   - We take the 4th byte of the X value and the first 3 bytes of the Y value to get value 80 3F 0F 3C -> ```0x803F0F3C``  
+   - We take the 4th byte of the X value and the first 3 bytes of the Y value to get value 80 3F 0F 3C -> 0x803F0F3C
 5. The game will attempt to run code at whatever is stored at ```0x803F0F3C``. This address contains controller data for controllers 2-4  
 6. We hold very precise inputs on controllers 2-4 to produce machine code which the game will execute.  
    a.) The code is very simple, all it does is delete one line of code that prevents the credits from loading when you load a new stage. This means that the next time we enter a new stage, such as entering Orca's house the credits are immediately triggered  
@@ -100,7 +100,7 @@ We peform all the of the steps from Part 3, but now with our payload from the pi
 
 1. ```sScreen``` has been corrupted to have the value of 0x80ABBDFF, which is the value of the specific pixel data of the 3rd image of the pictobox.  
 2. ```dMsg_Delete``` will take that address and add 8 to it, giving us ```0x80ABBE07```  
-3. ```0x80ABBE07``` refers to the 4th byte of Link's position data. Link is standing at X position = -200046.0 and Y position = 0.559514701. Forming the value ```0x803F0F3C``  
-4. ```dMsg_Delete``` will try to run code at address ```0x803F0F3C```, which it now thinks is where it needs to go to delete the screen data, but in reality ends up being the controller data containing our payload.  
+3. ```0x80ABBE07``` refers to the 4th byte of Link's position data. Link is standing at X position = -200046.0 and Y position = 0.559514701. Forming the value 0x803F0F3C  
+4. ```dMsg_Delete``` will try to run code at address 0x803F0F3C which it now thinks is where it needs to go to delete the screen data, but in reality ends up being the controller data containing our payload.  
 5. The controller data is ran as code, deleting one line of code within the stage transition function to trigger the credits.  
 6. We load a new stage, the modified code within the stage transition function causes the credits to now load.  
