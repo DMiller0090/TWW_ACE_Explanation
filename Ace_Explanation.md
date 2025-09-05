@@ -89,7 +89,7 @@ To trigger ACE, the following needs to happen:
    - We take the 4th byte of the X value and the first 3 bytes of the Y value to get value 80 3F 0F 3C -> 0x803F0F3C
 5. The game will attempt to run code at whatever is stored at ```0x803F0F3C``. This address contains controller data for controllers 2-4  
 6. We hold very precise inputs on controllers 2-4 to produce machine code which the game will execute.  
-   a.) The code is very simple, all it does is delete one line of code that prevents the credits from loading when you load a new stage. This means that the next time we enter a new stage, such as entering Orca's house the credits are immediately triggered  
+   - The code is very simple, all it does is delete one line of code that prevents the credits from loading when you load a new stage. This means that the next time we enter a new stage, such as entering Orca's house the credits are immediately triggered  
 
 ---
 
