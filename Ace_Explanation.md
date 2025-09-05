@@ -7,7 +7,7 @@ This has been a massive community effort with much thanks to the following peopl
 - EJ125
 - Azer67
 - ShadowQCD
-- Mr Cheeze
+- MrCheeze
 - LagoLunatic
 - Jasper
 - shoedrip
