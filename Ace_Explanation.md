@@ -84,7 +84,7 @@ To trigger ACE, the following needs to happen:
    - If we convert these values to hexadecimal we get the following:  
       >| 1  | 2  | 3  | **4**  | **5**  | **6**  | **7**  | 8  |
       >|----|----|----|----|----|----|----|----|
-      >| C8 | 43 | 5B | **80** | **3F** | **0F** | **3C** | 5B |
+      >| C8 | 43 | 5B | **80** | **3F** | **0F** | **3C** | XX |
        We take the 4th byte of the X value and the first 3 bytes of the Y value to get value 80 3F 0F 3C -> ```0x803F0F3C```
 5. The game will attempt to run code at whatever is stored at ```0x803F0F3C```. This address contains controller data for controllers 2-4  
 6. We hold very precise inputs on controllers 2-4 to produce machine code which the game will execute.  
