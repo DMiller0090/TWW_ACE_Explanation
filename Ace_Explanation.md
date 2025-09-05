@@ -65,7 +65,7 @@ After performing text stacking, this means that both NPCs both share the same va
 Unless we do the following......  
 
 ---
-
+FT
 ## Part 4: Creating the payload
 
 Relating back to our example, we mentioned that ```sScreen``` is refering to the address ```0x81572C40```. Originally, ```0x81572C40``` stored information about the (now deleted) textboxes screen data. However, now it's being populated by pictobox data. But what pictobox data exactly is getting loading into that address?  
@@ -77,7 +77,7 @@ It just so happens to be a certain collection of pixels within the 3rd image sav
 These pixels represent brightness/darkness levels of that particular region in the image.  
 To trigger ACE, the following needs to happen:
 
-1.  The pixel data just so happens to form an address, ```0x80ABBDFF```
+1.  We take a picture that just so happens to have the pixel data of ```0x80ABBDFF```
    > ![image](pixel_data.png) <br/><br/> *Read as Left to Right, Top to Bottom to form ```0x80ABBDFF```
 2. The game will try to run code at whatever value is stored at 0x80ABBDFF + 8 = ```0x80ABBE07```
 3. ```0x80ABBE07``` just so happens to refer to 4th byte of Link's position data.  
