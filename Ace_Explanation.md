@@ -1,4 +1,4 @@
-# ACE Techinical explanation:
+# ACE Technical explanation:
 
 ---
 
