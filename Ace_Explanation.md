@@ -86,7 +86,7 @@ It just so happens to be a collection of 4x4 pixels within the 3rd image saved i
 
 > ![image](NTSC-U_3rdPixelData.png) <br/><br/> *3rd saved image of pictobox. The black pixel is where the data that ```sScreen``` will be replaced with.*  
 
-Images are s3tc compressed. The values here refers to the palette data for the particular 4x4 block of pixels. They represent the specific pattern of pixels between two values.<br />
+Images are s3tc compressed. These values more or less represent the brightness/darkness levels of that particular region in the image.<br />
 To trigger ACE, the following needs to happen:
 
 1.  We take a picture that just so happens to have the pixel data of ```0x80ABBDFF```
