@@ -12,6 +12,7 @@ This has been a massive community effort with much thanks to the following peopl
 - Jasper
 - shoedrip
 - LegendOfLinkk
+- Maneko
 
 
 ## Part 1: Text Delay
