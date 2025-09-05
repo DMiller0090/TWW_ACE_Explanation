@@ -49,8 +49,8 @@ After performing text stacking, this means that both NPCs both share the same va
       2. ```sScreen``` tells ```dMsg_Delete``` that it needs to run code at whatever value ```sScreen``` is +8 in order to actually delete the screen from memory.  
          For example:  
             - when the message was created, let's say it assigned the value of ```0x81572C40``` to ```sScreen```  
-            - ```dMsg_Delete``` looks to see what value is stored by ```sScreen``` at address ```0x81572C40``` and sees the value is 0x8039D680  
-            - ```dMsg_Delete``` will attempt to take the address 0x8039D680, add 8 to it, giving us 0x8039D688, and will attempt to run whatever code is located at 0x8039D688  
+            - ```dMsg_Delete``` looks to see what value is stored by ```sScreen``` at address ```0x81572C40``` and sees the value is ```0x8039D680```
+            - ```dMsg_Delete``` will attempt to take the address ```0x8039D680```, add 8 to it, giving us 0x8039D688, and will attempt to run whatever code is located at ```0x8039D688```  
       3. ```dMsg_Delete``` runs the code ```sScreen``` told it to, and the space that was occupied by that screen is now free to be used by other UI (user interface) elements.  
       4. CRUICIALLY: despite the memory for the screen now available in memory, ```sScreen``` is NOT cleared, and still points to the same location of (now free) memory.  
          Relating back to our example... ```sScreen``` would still have the value ```0x81572C40``` despite that region of memory now available to be overwritten.  
@@ -78,14 +78,14 @@ To trigger ACE, the following needs to happen:
 
 1.  We take a picture that just so happens to have the pixel data of ```0x80ABBDFF```
    > ![image](pixel_data.png) <br/><br/> *Read as Left to Right, Top to Bottom to form ```0x80ABBDFF```
-2. The game will try to run code at whatever value is stored at 0x80ABBDFF + 8 = ```0x80ABBE07```
+2. The game will try to run code at whatever value is stored at ```0x80ABBDFF``` + 8 = ```0x80ABBE07```
 3. ```0x80ABBE07``` just so happens to refer to 4th byte of Link's position data.  
 4. Link's position data is stored as 3 floating point numbers. Our goal is stand at X position = -200046.0 and Y position = 0.559514701  
    - If we convert these values to hexadecimal we get the following:  
       >| 1  | 2  | 3  | **4**  | **5**  | **6**  | **7**  | 8  |
       >|----|----|----|----|----|----|----|----|
       >| C8 | 43 | 5B | **80** | **3F** | **0F** | **3C** | 5B |
-       We take the 4th byte of the X value and the first 3 bytes of the Y value to get value 80 3F 0F 3C -> 0x803F0F3C
+       We take the 4th byte of the X value and the first 3 bytes of the Y value to get value 80 3F 0F 3C -> ```0x803F0F3C```
 5. The game will attempt to run code at whatever is stored at ```0x803F0F3C```. This address contains controller data for controllers 2-4  
 6. We hold very precise inputs on controllers 2-4 to produce machine code which the game will execute.  
    - The code is very simple, all it does is delete one line of code that prevents the credits from loading when you load a new stage. This means that the next time we enter a new stage, such as entering Orca's house, the credits are immediately triggered  
