@@ -66,7 +66,7 @@ Unless we do the following......
 
 ---
 
-## Part 4: Creating the payload payload
+## Part 4: Creating the payload
 
 Relating back to our example, we mentioned that ```sScreen``` is refering to the address ```0x81572C40```. Originally, ```0x81572C40``` stored information about the (now deleted) textboxes screen data. However, now it's being populated by pictobox data. But what pictobox data exactly is getting loading into that address?  
 
