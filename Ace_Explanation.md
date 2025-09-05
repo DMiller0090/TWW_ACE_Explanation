@@ -1,5 +1,5 @@
 # ACE Technical explanation:
-
+ACE (Arbritrary code execution) in Wind Waker is performed by corrupting screen data from an NPC's textbox with pictobox image data to trick the game to run code based on inputs from controllers 2-4.
 ---
 
 ## Part 1: Text Delay
